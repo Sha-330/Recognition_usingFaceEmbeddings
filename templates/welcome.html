@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Association Day 2025 - Welcome</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        :root {
+            --dark-bg: #0d0a1b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding: 1rem;
+        }
+        
+        .main-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            aspect-ratio: 16 / 9;
+            background-color: var(--dark-bg);
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 2.5rem;
+        }
+
+        .fireworks {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: radial-gradient(circle at 50% 100%, #1a0040 0%, #060312 100%);
+        }
+        
+        .spark {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            box-shadow: 0 0 5px 1px var(--color, white); 
+            opacity: 0;
+            will-change: transform, opacity;
+        }
+        
+        .galaxy-wave {
+            position: absolute;
+            width: 150%;
+            height: 20%;
+            bottom: 25%;
+            filter: blur(20px);
+            z-index: 2;
+        }
+        
+        .wave-gold {
+            background: radial-gradient(ellipse at center, rgba(255, 200, 0, 0.6) 0%, transparent 70%);
+            left: -20%;
+            transform: rotate(-5deg);
+            animation: waveMoveGold 30s linear infinite;
+        }
+        
+        .wave-purple {
+            background: radial-gradient(ellipse at center, rgba(147, 112, 219, 0.6) 0%, transparent 70%);
+            right: -20%;
+            bottom: 15%;
+            transform: rotate(5deg);
+            animation: waveMovePurple 35s linear infinite reverse;
+        }
+
+        @keyframes waveMoveGold {
+            0% { transform: translateX(0%) rotate(-5deg); opacity: 0.6; }
+            50% { transform: translateX(10%) rotate(-7deg); opacity: 0.8; }
+            100% { transform: translateX(0%) rotate(-5deg); opacity: 0.6; }
+        }
+
+        @keyframes waveMovePurple {
+            0% { transform: translateX(0%) rotate(5deg); opacity: 0.6; }
+            50% { transform: translateX(-10%) rotate(7deg); opacity: 0.8; }
+            100% { transform: translateX(0%) rotate(5deg); opacity: 0.6; }
+        }
+
+        .stardust {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px; 
+            height: 1px;
+            background: transparent;
+            box-shadow: 
+                30vw 20vh 0 0 rgba(255, 255, 255, 0.5),
+                60vw 50vh 0 0 rgba(255, 255, 255, 0.3),
+                10vw 80vh 0 0 rgba(255, 255, 255, 0.6),
+                90vw 10vh 0 0 rgba(255, 255, 255, 0.4),
+                5vw 5vh 0 0 rgba(255, 255, 255, 0.7),
+                40vw 30vh 0 0 rgba(255, 255, 255, 0.2),
+                70vw 90vh 0 0 rgba(255, 255, 255, 0.5),
+                80vw 60vh 0 0 rgba(255, 255, 255, 0.3),
+                20vw 40vh 0 0 rgba(255, 255, 255, 0.6),
+                25vw 15vh 0 0 rgba(255, 255, 255, 0.5),
+                55vw 75vh 0 0 rgba(255, 255, 255, 0.4),
+                85vw 35vh 0 0 rgba(255, 255, 255, 0.7),
+                45vw 85vh 0 0 rgba(255, 255, 255, 0.3);
+            animation: twinkle 3s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .content-layer {
+            z-index: 10;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .dept-text {
+            color: white;
+            text-align: left;
+        }
+
+        .dept-subtitle {
+            font-size: 0.875rem;
+            opacity: 0.8;
+            line-height: 1.2;
+        }
+
+        .dept-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .search-btn {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            color: white;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .welcome-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .welcome-title {
+            font-size: 4rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: white;
+            opacity: 0.9;
+        }
+
+        /* Tablet styles */
+        @media (max-width: 1024px) {
+            .main-container {
+                padding: 2rem;
+            }
+
+            .welcome-title {
+                font-size: 3rem;
+            }
+
+            .welcome-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .dept-title {
+                font-size: 1.125rem;
+            }
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+                align-items: flex-start;
+                padding-top: 2rem;
+            }
+
+            .main-container {
+                aspect-ratio: auto;
+                min-height: 90vh;
+                padding: 1.5rem;
+                border-radius: 1rem;
+            }
+
+            .top-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .search-btn {
+                align-self: flex-end;
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+            }
+
+            .logo-section {
+                gap: 0.5rem;
+            }
+
+            .logo-section svg {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+
+            .dept-subtitle {
+                font-size: 0.75rem;
+            }
+
+            .dept-title {
+                font-size: 1rem;
+            }
+
+            .welcome-content {
+                padding: 0.5rem;
+            }
+
+            .welcome-title {
+                font-size: 2rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .welcome-subtitle {
+                font-size: 1rem;
+            }
+
+            .galaxy-wave {
+                height: 15%;
+            }
+        }
+
+        /* Small mobile styles */
+        @media (max-width: 480px) {
+            .main-container {
+                padding: 1rem;
+            }
+
+            .welcome-title {
+                font-size: 1.75rem;
+            }
+
+            .welcome-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .dept-title {
+                font-size: 0.9rem;
+            }
+
+            .dept-subtitle {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Landscape mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .main-container {
+                aspect-ratio: 16 / 9;
+                min-height: auto;
+            }
+
+            .welcome-title {
+                font-size: 2rem;
+            }
+
+            .welcome-subtitle {
+                font-size: 1rem;
+            }
+
+            .top-header {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <div class="fireworks" id="fireworks-container">
+        <div class="stardust"></div>
+        <div class="galaxy-wave wave-gold"></div>
+        <div class="galaxy-wave wave-purple"></div>
+    </div>
+    
+    <div class="content-layer">
+        <header class="top-header">
+            <div class="logo-section">
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    
+                </svg>
+    <div class="relative z-20 w-full h-full flex flex-col justify-between">
+        <header class="top-header flex items-center justify-start mb-6 md:mb-10">
+            <img 
+                src="https://ucarecdn.com/39c3f2ff-286e-4661-ac7f-32a6d5e8db07/AdobeExpressfile.png" 
+                alt="Department Logo" 
+                class="w-36 h-36 sm:w-48 sm:h-48 mr-6 sm:mr-8 flex-shrink-0 object-cover"
+            />
+            <div class="text-white">
+                <p class="text-xs sm:text-sm opacity-80">Department of Artificial</p>
+               <h2 class="text-xl sm:text-2xl font-semibold leading-tight">Intelligence and Data Science</h2>
+            </div>
+        </header>
+    </div>
+            
+            <button class="search-btn" aria-label="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+        </header>
+
+        <div class="welcome-content">
+            <h1 class="welcome-title" id="welcome-message">
+                Welcome, User
+            </h1>
+            <p class="welcome-subtitle">
+                We're delighted to have you at Association Day 2025!
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const colors = ['#ffcc00', '#00ffcc', '#ff00ff', '#ff8c00', '#00bfff', '#ff0077'];
+    const container = document.getElementById('fireworks-container');
+    const welcomeMessage = document.getElementById('welcome-message');
+
+    // Get name from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    let name = urlParams.get('name');
+    
+    if (name) {
+        // Sanitize and format name: convert URL encoded name to display text.
+        // Also apply basic capitalization (e.g., nishan ilahi pr -> Nishan Ilahi Pr).
+        // The original name in the HTML was 'Nishan Ilahi P R', which is kept here if no URL param is passed.
+        
+        // Simple function to capitalize first letter of each word
+        function toTitleCase(str) {
+            return str.replace(/\b\w/g, c => c.toUpperCase());
+        }
+
+        // Decode URL, replace URL spaces with regular spaces, and apply title case
+        name = decodeURIComponent(name).replace(/\+/g, ' ');
+        
+        // Convert to title case (e.g., 'nishan ilahi pr' -> 'Nishan Ilahi Pr')
+        const formattedName = toTitleCase(name);
+        
+        welcomeMessage.textContent = `Welcome, ${formattedName}`;
+    } else {
+        // Fallback to the original hardcoded name if no URL parameter is found
+        welcomeMessage.textContent = "Welcome, Nishan Ilahi P R"; 
+    }
+
+
+    // Adjust particle count based on screen size
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 80 : 180;
+    const maxDistance = isMobile ? 250 : 500;
+
+    function createFirework(x, y, color) {
+        const sparks = [];
+        for (let i = 0; i < particleCount; i++) {
+            const spark = document.createElement('div');
+            spark.classList.add('spark');
+            spark.style.cssText = `background-color: ${color}; box-shadow: 0 0 5px 1px ${color};`;
+            spark.style.left = `${x}px`;
+            spark.style.top = `${y}px`;
+            container.appendChild(spark);
+            sparks.push(spark);
+        }
+
+        sparks.forEach(spark => {
+            const angle = Math.random() * 2 * Math.PI;
+            const distance = Math.random() * maxDistance + 100; 
+            const targetX = x + Math.cos(angle) * distance;
+            const targetY = y + Math.sin(angle) * distance;
+            const startScale = Math.random() * 1.5 + 0.5;
+
+            anime({
+                targets: spark,
+                translateX: targetX - x,
+                translateY: targetY - y,
+                scale: [startScale, 0], 
+                opacity: [
+                    { value: 1, duration: 100 }, 
+                    { value: 0, duration: 1800, delay: 300 } 
+                ],
+                duration: Math.random() * 800 + 1700, 
+                easing: 'easeOutQuart', 
+                delay: Math.random() * 200, 
+                complete: () => { spark.remove(); }
+            });
+        });
+    }
+
+    function getRandomPosition() {
+        const rect = container.getBoundingClientRect();
+        return {
+            x: Math.random() * rect.width * 0.8 + rect.width * 0.1, 
+            y: Math.random() * rect.height * 0.8 + rect.height * 0.1 
+        };
+    }
+
+    function launchFireworks() {
+        const numFireworks = isMobile ? 4 : 8; 
+        const totalDuration = 8000; 
+        
+        for (let i = 0; i < numFireworks; i++) {
+            const delay = (totalDuration / numFireworks) * i + Math.random() * 1000;
+            const color = colors[i % colors.length];
+
+            setTimeout(() => {
+                const pos = getRandomPosition();
+                const rocketTravelTime = 1500;
+                
+                const rocket = document.createElement('div');
+                rocket.classList.add('spark');
+                rocket.style.cssText = `background-color: white; box-shadow: 0 0 10px 3px white; width: 4px; height: 4px;`;
+                rocket.style.left = `${pos.x}px`;
+                rocket.style.top = `${container.offsetHeight}px`; 
+                container.appendChild(rocket);
+                
+                anime({
+                    targets: rocket,
+                    translateY: pos.y - container.offsetHeight, 
+                    duration: rocketTravelTime,
+                    easing: 'easeOutSine',
+                    complete: () => {
+                        rocket.remove();
+                        createFirework(pos.x, pos.y, color);
+                    }
+                });
+            }, delay);
+        }
+    }
+
+    function fireworkLoop() {
+        launchFireworks();
+        setTimeout(fireworkLoop, 8000); 
+    }
+    
+    window.onload = fireworkLoop;
+</script>
+
+</body>
+</html>
